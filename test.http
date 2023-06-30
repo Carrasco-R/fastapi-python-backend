@@ -1,0 +1,25 @@
+POST http://127.0.0.1:8000/albums
+Content-Type: application/json
+
+{
+  "title":"peru!",
+  "description": "fun at the beach!"  
+}
+
+### 
+
+GET http://127.0.0.1:8000/albums/3
+
+### 
+
+PUT http://127.0.0.1:8000/albums/3
+Content-Type: application/json
+
+{
+  "id":3,
+  "title":"Daytona!!!",
+  "description": "having fun"
+}
+
+###
+DELETE http://127.0.0.1:8000/albums/3
