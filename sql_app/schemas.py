@@ -2,6 +2,7 @@ from typing import List, Union
 from pydantic import BaseModel
 
 class PhotoBase(BaseModel):
+  album_id: str
   title: str
   description: Union[str, None] = None
   filename: str 
@@ -13,7 +14,6 @@ class PhotoCreate(PhotoBase):
 
 class Photo(PhotoBase):
   id: int
-  album_id: str
 
   class Config:
     orm_mode = True

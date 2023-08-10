@@ -30,3 +30,20 @@ def delete_album(db: Session, album_id: int):
   db.delete(db_album)
   db.commit()
   return True
+
+def get_photo(db: Session, photo_id: int):
+ return db.query(models.Photo).filter(models.Photo.id == photo_id).first()
+
+def create_photo(db: Session, photo: schemas.PhotoCreate):
+  db_photo = models.Photo(
+    album_id = photo.album_id,
+    title = photo.title,
+    description = photo.title,
+    filename = photo.filename,
+    timestamp = photo.timestamp,
+    location = photo.location
+  )
+  db.add(db_photo)
+  db.commit()
+  db.refresh(db_photo)
+  return db_photo

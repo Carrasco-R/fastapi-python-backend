@@ -3,12 +3,12 @@ Content-Type: application/json
 
 {
   "title":"peru!",
-  "description": "fun at the beach!"  
+  "description": "fun at the beach! I hate good things and"  
 }
 
 ### 
 
-GET http://127.0.0.1:8000/albums/3
+GET http://127.0.0.1:8000/albums/7
 
 ### 
 
@@ -23,3 +23,34 @@ Content-Type: application/json
 
 ###
 DELETE http://127.0.0.1:8000/albums/3
+
+###
+POST http://127.0.0.1:8000/albums/7/photos
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="title"
+
+Aruba!
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="description"
+
+Description of Aruba!
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="timestamp"
+
+{{$timestamp}}
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="location"
+
+Caribe
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="cat.png"
+Content-Type: image/png
+
+< ./cat.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+
+###
+GET http://127.0.0.1:8000/albums/7/photos/24/file
